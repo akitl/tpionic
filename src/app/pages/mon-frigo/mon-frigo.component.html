@@ -1,0 +1,16 @@
+<h2>Mon frigo contient</h2>
+
+<ul class="frigo" class="list-group">
+  <li *ngFor="let ing of ings" 
+  [class.selected]="ing === selecteding" class="list-group-item">
+    <span (click)="onSelect(ing)">{{ing.nom}}</span>
+    <button  (click)="onSelectDel(ing)">X</button>
+  </li>
+  <app-ingredient-detail [ing]="selectedIng"></app-ingredient-detail>
+</ul>
+
+
+<button (click)="addDetail()">+ ajouter un ingredient</button>
+<div *ngIf="addDetailBool">
+<app-add-detail (notifyParent)="ingredientAdd()"></app-add-detail>
+</div>

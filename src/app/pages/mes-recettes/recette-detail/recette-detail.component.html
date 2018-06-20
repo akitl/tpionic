@@ -1,0 +1,38 @@
+<div *ngIf="rec">
+    
+      <h2> Nom: <br>
+        {{ rec.nom | uppercase }} 
+        <input [(ngModel)]="rec.nom" placeholder="nom"/>
+      </h2>
+        <label>
+          Description : <br>
+          {{ rec.desc }}
+          <input [(ngModel)]="rec.decs" placeholder="desc"/>
+        </label>
+        <label>
+        <li *ngFor="let ing of rec.list" >
+          <span>{{ing.nom}} * {{ing.quantite}}</span>
+          <button (click)="addIngquatite(ing)">+</button><button (click)="delIngquatite(ing)">-</button>
+        </li>
+      </label>
+      <button *ngIf="!addBo" (click)="addIngBo()"> 
+        Ajouter un ingredient !
+      </button>
+        <nav *ngIf="addBo" >
+            <h2>
+                <input [(ngModel)]="ingAdd.nom" placeholder="nom"/>
+              </h2>
+                <label>quantité:
+                  <input [(ngModel)]="ingAdd.quantite" placeholder="quantite"/>
+                </label>
+                <label>unité:
+                  <input [(ngModel)]="ingAdd.unite" placeholder="unite"/>
+                </label> 
+              <button (click)="addIngredient()">
+                Ajouter !
+              </button>
+        </nav>
+      
+
+    
+    </div> 

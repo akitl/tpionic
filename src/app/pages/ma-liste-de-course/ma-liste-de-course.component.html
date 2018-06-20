@@ -1,0 +1,18 @@
+<h2>Ma Liste de course</h2>
+
+<button  (click)="clearList()">Vider la liste</button>
+<ul class="course" class="list-group">
+  <li *ngFor="let ing of liste" 
+  [class.selected]="ing === selecteding" class="list-group-item">
+    <span (click)="onSelect(ing)">{{ing.nom}}</span>
+    <button  (click)="onSelectDel(ing)">X</button>
+    <input (click)="addDansLeFrigo(ing)" type="checkbox">
+  </li>
+  <app-ingredient-detail [ing]="selectedIng"></app-ingredient-detail>
+</ul>
+
+
+<button (click)="addDetail()">+ ajouter un ingredient</button>
+<div *ngIf="addDetailBool">
+<app-add-ingredient-list (notifyParent)="ingredientAdd()"></app-add-ingredient-list>
+</div>

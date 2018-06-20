@@ -1,0 +1,12 @@
+<h2>
+  <input [(ngModel)]="ing.nom" placeholder="nom"/>
+</h2>
+  <label>quantité:
+    <input [(ngModel)]="ing.quantite" placeholder="quantite"/>
+  </label>
+  <label>unité:
+    <input [(ngModel)]="ing.unite" placeholder="unite"/>
+  </label> 
+<button (click)="addIngredient()">
+  Ajouter !
+</button>

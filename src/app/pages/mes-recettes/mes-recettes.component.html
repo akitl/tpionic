@@ -1,0 +1,16 @@
+<ul class="recette" class="list-group">
+    <li *ngFor="let rec of recs;let i = index" class="list-group-item">
+      <span  (click)="onSelect(rec)">{{rec.nom}}</span>
+      <button (click)="onSelectDel(rec)"> X </button>
+      <span *ngIf="recsFaisable[i]">  Realisable</span>
+      <span *ngIf="!recsFaisable[i]"> Ingredient Manquant</span>
+      <button *ngIf="recsFaisable[i]" (click)="realiserRec(rec)"> J'ai fait cette recette ! </button>
+    </li>
+
+    <app-recette-detail *ngIf="selectedRec" [rec]="selectedRec"></app-recette-detail>
+  </ul>
+
+  <button *ngIf="!addRecBo" (click)="addRec()"> 
+      Ajouter une recette !
+  </button>
+  <app-add-recette *ngIf="addRecBo" (notifyParent)="RecetteAdd()"></app-add-recette>
